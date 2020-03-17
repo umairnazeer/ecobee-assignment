@@ -37,7 +37,7 @@ The Allure Reporter creates Allure test reports which is an HTML generated websi
 
 To generate and view an allure report locally, run `npm run allure-report`. Following is what a typical Allure report will look like:
 
-![ScreenShot](images/allure-report-screenshot.png)
+![ScreenShot](images/Allure_Report.png)
 
 ## The Page Object Design Pattern
 This project is using page object design pattern to avoid duplication of the locators and keep the code and locators more maintainable and clean.
