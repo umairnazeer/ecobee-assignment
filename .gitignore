@@ -3,3 +3,6 @@ allure-report/
 allure-results/
 node_modules/
 reports/
+test/.DS_Store
+.DS_Store
+reports/html-reports/report.html
