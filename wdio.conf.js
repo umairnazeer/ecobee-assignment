@@ -1,4 +1,5 @@
 //const { ReportAggregator, HtmlReporter } = require('@rpii/wdio-html-reporter');
+// const { TimelineService } = require('wdio-timeline-reporter/timeline-service');
 exports.config = {
     //
     // ====================
@@ -68,7 +69,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'silent',
     //
     // Set specific log levels per logger
     // loggers:
@@ -108,7 +109,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
+    services: ['chromedriver',],
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -116,9 +117,12 @@ exports.config = {
     //
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
-    framework: 'jasmine',
+    framework: 'mocha',
     before: function () {
         require('@babel/register')
+        const chai = require('chai')
+        global.expect = chai.expect
+        chai.Should()
     },
     //
     // The number of times to retry the entire specfile when it fails as a whole
@@ -130,37 +134,11 @@ exports.config = {
 
     // Allure reporter
     reporters: ['spec',
-            // [HtmlReporter, {
-            //     debug: true,
-            //     outputDir: './reports/html-reports/',
-            //     filename: 'report.html',
-            //     reportTitle: 'SlashDot Test Report',
-
-            //     //to show the report in a browser when done
-            //     showInBrowser: true,
-
-            //     //to turn on screenshots after every test
-            //     useOnAfterCommandForScreenshot: false,
-
-            //     // to use the template override option, can point to your own file in the test project:
-            //     // templateFilename: path.resolve(__dirname, '../src/wdio-html-reporter-alt-template.hbs'),
-
-            //     // to add custom template functions for your custom template:
-            //     // templateFuncs: {
-            //     //     addOne: (v) => {
-            //     //         return v+1;
-            //     //     },
-            //     // },
-
-            //     //to initialize the logger
-            //     LOG: log4j.getLogger("default")
-            // }
-            // ]
-            // ['allure', {
-            //     outputDir: 'allure-results',
-            //     disableWebdriverStepsReporting: true,
-            //     disableWebdriverScreenshotsReporting: true
-            // }]
+        ['allure', {
+            outputDir: 'allure-results',
+            disableWebdriverStepsReporting: true,
+            disableWebdriverScreenshotsReporting: true
+        }]
     ],
     //
     // Options to be passed to Jasmine.
