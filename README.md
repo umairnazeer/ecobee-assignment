@@ -1,5 +1,4 @@
-# ecobee-assignment
-# WebdriverIO e2e tests
+# Ecobee Assignment With WebdriverIO
 
 ## Why WebdriverIO
 WebdriverIO is a leading automation framework that allows custom implementation for selenium's W3C webdriver API. Written in Javascript and packaged into 'npm', it runs on Node.js. 
