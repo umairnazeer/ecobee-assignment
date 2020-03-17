@@ -1,5 +1,4 @@
 import Page from './page'
-// super.logMessage(AmtOfArticles);
 
 class HomePage extends Page {
 
@@ -26,7 +25,7 @@ class HomePage extends Page {
     getUniqueIcons(iconElement){
         let title = 'title';
         let arr = [];
-        let count =0;
+
         // get all icon text
         iconElement.forEach(element => {
             arr.push(element.getAttribute(title));
