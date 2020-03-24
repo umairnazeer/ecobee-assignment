@@ -3,7 +3,7 @@ import Page from './page'
 class HomePage extends Page {
 
     get articles() { return $$('article[data-fhtype="story"]') }
-    get allIcons() { return $$('//*[starts-with(@id, "topic")]') }
+    get allIcons() { return $$('//*[starts-with(@id, "topic")]') } //css = span[id*='topic']
     get icons() { return $$('.topic>a>img')}
 
     open() {
@@ -15,7 +15,7 @@ class HomePage extends Page {
     }
 
     getIcons(iconElement){
-        let title = 'title'; // hardcoded to get thet attribute text of the icons
+        let title = 'title'; // hardcoded to get the attribute text of the icons
 
         iconElement.forEach(element => {
             return console.log("the Attribute text is " + element.getAttribute(title));
