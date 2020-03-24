@@ -3,6 +3,7 @@ import Page from './page'
 
 class PollsPage extends Page {
 
+    get getAnswerList () { return $$('input[name="aid"]')}
     get yesMendatoryAnswer () { return $('#pollBooth>:nth-child(4)') }
     get voteNowBtn () { return $('.poll-controls>.btn-polls') }
     get totalVotes () { return $('.totalVotes') }
@@ -13,7 +14,10 @@ class PollsPage extends Page {
     }
 
     selectRandomAnswer() {
-        this.yesMendatoryAnswer.click();
+        let counter = this.getAnswerList.length;
+        const list = Math.floor(Math.random() * counter) + 1;
+        const elem = $(`#pollBooth>:nth-child(${list})`);
+        elem.click();
     }
 
     clickVoteNow(){
